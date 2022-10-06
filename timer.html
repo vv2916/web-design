@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .color1{
+            background-color: pink;
+        }
+
+        .color2{
+            background-color: palegreen;
+        }
+    </style>
+</head>
+<body>
+   <div id="div1" style="width:100px;height:100px;border:3px solid black"> </div>
+   
+   <button id="start">Start Timer</button>
+   <button id="stop"> Stop Timer</button>
+
+   <script>
+    document.getElementById("start").addEventListener("mouseover", startTimer)
+    document.getElementById("stop").addEventListener("click", stopTimer)
+    let interval = null
+
+    function startTimer()
+    {
+        // start the time by calling setInterval( task, duration)
+        if(interval==null)
+        {
+           interval = setInterval(animateColor, 1000)
+        }
+    }
+
+    function stopTimer()
+    {
+        // stop the time by calling clearInterval()
+        clearInterval(interval)
+        interval = null
+    }
+
+    
+    let divref = document.getElementById("div1")
+
+    function animateColor()
+    {
+
+        if(divref.className==="color1")
+        {
+            divref.className="color2"
+
+        }
+        else{
+            divref.className="color1"
+        }
+
+
+
+    }
+    </script>
+</body>
+</html>
